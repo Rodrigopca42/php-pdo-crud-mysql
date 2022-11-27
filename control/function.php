@@ -49,28 +49,28 @@ function get_replacement($type)
 
         if($crud == 'select')
         {
-            return ['{{alert-msg}}' => $alert, '{{title}}' => 'Listagem de Produtos', '{{h1}}' => 'Produtos']; 
+            return ['{{alert-msg}}' => $alert, '{{title}}' => 'Listagem de Materia', '{{h1}}' => 'Materia']; 
         }
         else if($crud == 'insert')
         {
-            return ['{{alert-msg}}' => $alert, '{{title}}' => 'CRUD - Insert', '{{h1}}' => 'Inserir Produto']; 
+            return ['{{alert-msg}}' => $alert, '{{title}}' => 'CRUD - Insert', '{{h1}}' => 'Inserir Aluno']; 
         }
         else if($crud == 'update')
         {
-            return ['{{alert-msg}}' => $alert, '{{title}}' => 'CRUD - Update', '{{h1}}' => 'Atualizar Produto']; 
+            return ['{{alert-msg}}' => $alert, '{{title}}' => 'CRUD - Update', '{{h1}}' => 'Atualizar Aluno']; 
         }
     }
     else if($type == 'insert')
     {
-        return ['{{crud}}' => 'insert', '{{id}}' => '', '{{product}}' => '', '{{price}}' => '', '{{btn}}' => 'Cadastrar']; 
+        return ['{{crud}}' => 'insert', '{{matricula}}' => '', '{{product}}' => '', '{{ano}}' => '', '{{btn}}' => 'Cadastrar']; 
     }
     else if($type == 'update')
     {
-        $id    = isset($uprod['id_produto']) ? $uprod['id_produto'] : '';
-        $nome  = isset($uprod['nome']) ? $uprod['nome'] : '';
-        $valor = isset($uprod['valor']) ? $uprod['valor'] : '';
+        $id    = isset($uprod['matricula']) ? $uprod['matricula'] : '';
+        $nome  = isset($uprod['aluno']) ? $uprod['aluno'] : '';
+        $valor = isset($uprod['semestre']) ? $uprod['semestre'] : '';
 
-        return ['{{crud}}' => 'update', '{{id}}' => $id, '{{product}}' => $nome, '{{price}}' => $valor, '{{btn}}' => 'Atualizar']; 
+        return ['{{crud}}' => 'update', '{{matricula}}' => $id, '{{product}}' => $nome, '{{semestre}}' => $valor, '{{btn}}' => 'Atualizar']; 
     }
     else if($type == 'list_item')
     {
@@ -89,10 +89,10 @@ function mount_replacement()
     foreach($prod as $rtn)
     {
         array_push($data, [
-            '{{id}}'       => $rtn['id_produto'],
-            '{{product}}'  => $rtn['nome'],
-            '{{price}}'    => number_format($rtn['valor'], 2, ',', '.'),
-            '{{discount}}' => number_format($rtn['valor_desconto'], 2, ',', '.'),
+            '{{matricula}}'       => $rtn['matricula'],
+            '{{faculdade}}'  => $rtn['aluno'],
+            '{{semestre}}'    => number_format($rtn['ano'], 2, ',', '.'),
+            '{{carga}}' => number_format($rtn['carga_horaria'], 2, ',', '.'),
         ]);
     }
 

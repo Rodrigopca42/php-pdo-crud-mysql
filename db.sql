@@ -5,25 +5,30 @@ CREATE SCHEMA IF NOT EXISTS php_crud;
 USE php_crud;
 
 -- CREATE TABLE
-CREATE TABLE IF NOT EXISTS produto (
-    id_produto INT NOT NULL AUTO_INCREMENT,
-    nome VARCHAR(50) NULL,
-    valor DECIMAL(10,2) NULL,
-    valor_desconto DECIMAL(10,2) NULL,
-    PRIMARY KEY (id_produto)
+CREATE TABLE IF NOT EXISTS faculdade(
+    id INT NOT NULL AUTO_INCREMENT,
+    aluno VARCHAR(50)NOT NULL,
+    matricula INT(5) NOT NULL AUTO_INCREMENT,
+    curso VARCHAR(50) NOT NULL,
+    ano INT(4) NOT NULL,
+    semestre INT(1) NOT NULL, 
+    curso VARCHAR(100) NOT NULL,
+    carga_horaria INT(4) NOT NULL,
+    atividade_complementar TEXT NULL
+    PRIMARY KEY (matricula)
 );
 
 -- CREATE TRIGGER ON INSERT
-CREATE TRIGGER tr_i_produto_10_porcento 
-BEFORE INSERT ON produto
+CREATE TRIGGER tr_i_faculdade_matricula_ativa 
+BEFORE INSERT ON faculdade
 FOR EACH ROW
-SET NEW.valor_desconto = NEW.valor * 0.9;
+SET matricula_ativa = true;
 
 -- CREATE TRIGGER ON UPDATE
-CREATE TRIGGER tr_u_produto_10_porcento 
-BEFORE UPDATE ON produto
+CREATE TRIGGER tr_i_faculdade_matricula_ativa 
+BEFORE INSERT ON faculdade
 FOR EACH ROW
-SET NEW.valor_desconto = NEW.valor * 0.9;
+SET matricula_ativa = true;
 
 
 ##############################
@@ -37,7 +42,7 @@ SELECT User, HOST FROM mysql.user;
 SHOW GRANTS FOR crud@localhost;
 
 -- Cria usuário
-CREATE USER 'crud'@'localhost' IDENTIFIED BY '123456';
+CREATE USER 'crud'@'localhost' IDENTIFIED BY '654321';
 
 -- Concede permissões CRUD
 GRANT INSERT, UPDATE, DELETE, SELECT, EXECUTE 
@@ -47,4 +52,4 @@ TO crud@localhost;
 -- Cria usuário e concede permissões em comando único
 GRANT INSERT, UPDATE, DELETE, SELECT, EXECUTE 
 ON *.* 
-TO crud@localhost IDENTIFIED BY '123456';
+TO crud@localhost IDENTIFIED BY '654321';

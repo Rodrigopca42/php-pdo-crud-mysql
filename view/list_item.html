@@ -6,13 +6,13 @@
     <td class="d-flex flex-row">
         <form id="form-update-{{id}}" method="POST" class="mr-2" >
             <input type="hidden" name="crud" value="update" >
-            <input type="hidden" name="id_update" value="{{id}}" >
+            <input type="hidden" name="matricula_update" value="{{matricula}}" >
             <input type="submit" value="Editar" class="btn btn-sm btn-outline-primary" >
         </form>
         
         <form id="form-delete-{{id}}" method="POST" >
             <input type="hidden" name="crud" value="delete" >
-            <input type="hidden" name="id_delete" value="{{id}}" >
+            <input type="hidden" name="matricula_delete" value="{{matricula}}" >
             <input type="submit" value="Apagar" class="btn btn-sm btn-outline-danger" >
         </form>
     </td>

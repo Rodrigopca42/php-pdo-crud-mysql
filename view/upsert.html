@@ -1,13 +1,13 @@
 <form id="form-upsert" action="" method="POST">
     <div class="form-group">
-        <label for="ipt_name">Produto</label>
+        <label for="ipt_name">Faculdade</label>
         <input type="hidden" name="crud" value="{{crud}}" >
-        <input type="hidden" name="id" value="{{id}}" required="required">
-        <input type="text" name="product" id="ipt_name" class="form-control" value="{{product}}" required="required">
+        <input type="hidden" name="matricula" value="{{matricula}}" required="required">
+        <input type="text" name="aluno" id="ipt_name" class="form-control" value="{{aluno}}" required="required">
     </div>
     <div class="form-group">
         <label for="ipt_price">Valor</label>
-        <input type="number" name="price" id="ipt_price" min="0" step="0.01" class="form-control" value="{{price}}">
+        <input type="number" name="ano" id="ipt_ano" min="0" step="0.01" class="form-control" value="{{semestre}}">
     </div>
 </form>
 
