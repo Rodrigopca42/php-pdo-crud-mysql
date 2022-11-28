@@ -24,7 +24,7 @@ else
         'drive' => 'mysql', 
         'host'  => 'localhost', 
         'user'  => 'crud', 
-        'pass'  => '654321', 
+        'pass'  => '362514', 
         'base'  => 'php_crud'
     ];
 }

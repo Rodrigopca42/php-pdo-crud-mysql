@@ -49,28 +49,28 @@ function get_replacement($type)
 
         if($crud == 'select')
         {
-            return ['{{alert-msg}}' => $alert, '{{title}}' => 'Listagem de Materia', '{{h1}}' => 'Materia']; 
+            return ['{{alert-msg}}' => $alert, '{{title}}' => 'Listagem de Atividade ', '{{h1}}' => 'Atividade Complementar']; 
         }
         else if($crud == 'insert')
         {
-            return ['{{alert-msg}}' => $alert, '{{title}}' => 'CRUD - Insert', '{{h1}}' => 'Inserir Aluno']; 
+            return ['{{alert-msg}}' => $alert, '{{title}}' => 'CRUD - Insert', '{{h1}}' => 'Inserir Candidato']; 
         }
         else if($crud == 'update')
         {
-            return ['{{alert-msg}}' => $alert, '{{title}}' => 'CRUD - Update', '{{h1}}' => 'Atualizar Aluno']; 
+            return ['{{alert-msg}}' => $alert, '{{title}}' => 'CRUD - Update', '{{h1}}' => 'Atualizar Candidato']; 
         }
     }
     else if($type == 'insert')
     {
-        return ['{{crud}}' => 'insert', '{{matricula}}' => '', '{{product}}' => '', '{{ano}}' => '', '{{btn}}' => 'Cadastrar']; 
+        return ['{{crud}}' => 'insert', '{{id}}' => '', '{{product}}' => '', '{{ano}}' => '', '{{btn}}' => 'Cadastrar']; 
     }
     else if($type == 'update')
     {
-        $id    = isset($uprod['matricula']) ? $uprod['matricula'] : '';
+        $id    = isset($uprod['id']) ? $uprod['id'] : '';
         $nome  = isset($uprod['aluno']) ? $uprod['aluno'] : '';
-        $valor = isset($uprod['semestre']) ? $uprod['semestre'] : '';
+        $valor = isset($uprod['ano']) ? $uprod['ano'] : '';
 
-        return ['{{crud}}' => 'update', '{{matricula}}' => $id, '{{product}}' => $nome, '{{semestre}}' => $valor, '{{btn}}' => 'Atualizar']; 
+        return ['{{crud}}' => 'update', '{{id}}' => $id, '{{product}}' => $nome, '{{curso}}' => $valor, '{{btn}}' => 'Atualizar']; 
     }
     else if($type == 'list_item')
     {
@@ -89,10 +89,10 @@ function mount_replacement()
     foreach($prod as $rtn)
     {
         array_push($data, [
-            '{{matricula}}'       => $rtn['matricula'],
-            '{{faculdade}}'  => $rtn['aluno'],
-            '{{semestre}}'    => number_format($rtn['ano'], 2, ',', '.'),
-            '{{carga}}' => number_format($rtn['carga_horaria'], 2, ',', '.'),
+            '{{id}}' =>                                 $rtn['matricula'],
+            '{{estudante}}' =>                              $rtn['aluno'],
+            '{{curso}}'  =>       number_format($rtn['ano'], 2, ',', '.'),
+            '{{semestre}}' =>number_format($rtn['carga_horaria'], 2, ',', '.'),
         ]);
     }
 
